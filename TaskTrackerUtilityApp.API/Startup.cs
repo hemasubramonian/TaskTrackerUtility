@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using TaskTrackerUtilityApp.API.Data;
+using TaskTrackerUtilityApp.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 
@@ -30,6 +31,7 @@ namespace TaskTrackerUtilityApp.API
         {
             services.AddDbContextPool<DataContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("TaskTrackerDBConnection")));
+            services.AddScoped<ITaskMaintenanceDataRepository, TaskMaintenanceManager>();
             services.AddControllers();
             services.AddCors();
         }

@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TaskTrackerUtilityApp.API.Models;
 
 namespace TaskTrackerUtilityApp.API.Data
@@ -8,5 +8,7 @@ namespace TaskTrackerUtilityApp.API.Data
        public DataContext(DbContextOptions<DataContext> options) : base(options){} 
 
        public DbSet<Value> Values {get; set;}
+
+       public DbSet<TaskMaintenance> TaskMaintenance { get; set; }
     }
 }
